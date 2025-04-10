@@ -11,6 +11,7 @@ body {
   line-height: 1.6;
   background-color: #0d0d0d;
   color: #f0f0f0;
+  padding-top: 80px; /* Espaço para o header fixo */
 }
 
 /* Container padrão */
@@ -23,14 +24,17 @@ body {
 
 /* Header/Navbar */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.95);
   padding: 1rem 0;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
 }
 
 .logo {
@@ -185,25 +189,20 @@ body {
   animation: fadeIn 1s ease-out forwards;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Responsivo */
 @media (max-width: 768px) {
-  .nav {
-    justify-content: center;
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
   }
 
   .nav-list {
     flex-direction: column;
+    gap: 10px;
     background-color: #111;
     padding: 1rem;
     border-radius: 10px;
-    gap: 10px;
   }
 
   .hero-content {
@@ -220,13 +219,18 @@ body {
 
   .skills-grid,
   .projetos-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   .btn {
-    display: inline-block;
     margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
